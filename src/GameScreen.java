@@ -15,21 +15,6 @@ public class GameScreen extends JFrame {
 	private JPanel contentPane;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GameScreen game = new GameScreen();
-					game.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-	/**
 	 * Create the frame.
 	 */
 	public GameScreen() {
