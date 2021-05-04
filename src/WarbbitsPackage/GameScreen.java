@@ -1,14 +1,13 @@
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+package WarbbitsPackage;
 
+import java.awt.Color;
+import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import java.awt.GridLayout;
-import java.awt.Color;
 import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 
 public class GameScreen extends JFrame {
 
@@ -30,11 +29,11 @@ public class GameScreen extends JFrame {
 		panel.setBounds(6, 104, 512, 512);
 		contentPane.add(panel);
 		
-		ImageIcon icon = new ImageIcon("../res/tabuleiro.png"); 
+		Image icon = new ImageIcon(this.getClass().getResource("/tabuleiro.png")).getImage(); 
 	    panel.setLayout(null);
 	    JLabel label = new JLabel(); 
 	    label.setBounds(0, 0, 512, 512);
-	    label.setIcon(new ImageIcon("/Users/murilo.dias/PrivateProjects/Warbbits-PC/res/tabuleiro.png")); 
+	    label.setIcon(new ImageIcon(icon)); 
 	    panel.add(label);
 	    this.getContentPane().add(panel); 
 	    

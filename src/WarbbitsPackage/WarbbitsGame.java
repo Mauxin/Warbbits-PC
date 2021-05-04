@@ -1,17 +1,12 @@
+package WarbbitsPackage;
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.Color;
-import java.awt.BorderLayout;
-import java.awt.Font;
-import java.awt.event.ActionListener;
-import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
-import javax.swing.JComboBox;
-import javax.swing.JButton;
-import java.awt.FlowLayout;
-import javax.swing.BoxLayout;
 
 public class WarbbitsGame {
 
