@@ -62,7 +62,8 @@ public class WarbbitsGame {
 		btnNewButton.setBounds(326, 335, 221, 69);
 		btnNewButton.addActionListener(e ->
 		{
-			JOptionPane.showMessageDialog(new JFrame(), "JOGO COMEÇOU!!!!!");
+			frmWarbbits.setVisible(false);
+	        new GameScreen().setVisible(true);
 		});
 		frmWarbbits.getContentPane().add(btnNewButton);
 	}
