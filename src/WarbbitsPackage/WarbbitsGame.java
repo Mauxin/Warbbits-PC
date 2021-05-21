@@ -26,6 +26,8 @@ public class WarbbitsGame {
 				}
 			}
 		});
+		
+		System.out.println(WarbbitsGame.class.getResource("/tabuleiro.png"));
 	}
 
 	/**
