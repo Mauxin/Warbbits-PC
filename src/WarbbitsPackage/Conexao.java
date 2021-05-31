@@ -13,6 +13,8 @@ public class Conexao {
 	public DataInputStream dis;
 	ServerSocket serverSocket;
 	Socket socket;
+	
+	public String Player= "";
 
 	String ip = "localhost";
 	int porta = 1234;
@@ -48,10 +50,10 @@ public class Conexao {
 			e.printStackTrace();
 		}
 		
-		//TODO : avisar que é o servidor e que ele inicia a jogada
-		
+		this.Player = "Host";
 		
 	}
+	
 	
 	 
 }

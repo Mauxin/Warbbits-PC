@@ -1,7 +1,21 @@
 package WarbbitsPackage;
+ 
+
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 
 public class Equipe {
 
+	Icon imgPecaAzul;
+	Icon imgFireFighterBlue;
+	Icon imgIceFighterBlue;
+	Icon imgWaterFighterBlue;
+	Icon imgPecaVermelha;
+	Icon imgFireFighterRed;
+	Icon imgIceFighterRed;
+	Icon imgWaterFighterRed;
+	
+	
 	// quantidade final de cada coelho permitido
 	final int numCoelhos = 14;
 	final int numFireFighters = 4;
@@ -17,7 +31,7 @@ public class Equipe {
 	public int qntIceFightersAtual;
 	public int qntBandeiraAtual;
 	public int qntArmadilhasAtual;
-	
+
 	public int coelhosFaltantesLenght;
 
 	TipoEquipe time;
@@ -49,33 +63,33 @@ public class Equipe {
 		return false;
 
 	}
-	
+
 	public TipoCoelho[] getCoelhosFaltantes() {
 		TipoCoelho[] coelhosFaltantes = new TipoCoelho[5];
-		coelhosFaltantesLenght=0;
-		
+		coelhosFaltantesLenght = 0;
+
 		if (qntIceFightersAtual < numIceFighters) {
 			coelhosFaltantes[coelhosFaltantesLenght] = TipoCoelho.Gelo;
-			coelhosFaltantesLenght ++;
+			coelhosFaltantesLenght++;
 		}
 		if (qntFireFightersAtual < numFireFighters) {
 			coelhosFaltantes[coelhosFaltantesLenght] = TipoCoelho.Fogo;
-			coelhosFaltantesLenght ++;
+			coelhosFaltantesLenght++;
 		}
 		if (qntWaterFightersAtual < numWaterFighters) {
 			coelhosFaltantes[coelhosFaltantesLenght] = TipoCoelho.Agua;
-			coelhosFaltantesLenght ++;
+			coelhosFaltantesLenght++;
 		}
 		if (qntBandeiraAtual < numBandeira) {
 			coelhosFaltantes[coelhosFaltantesLenght] = TipoCoelho.Bandeira;
-			coelhosFaltantesLenght ++;
+			coelhosFaltantesLenght++;
 		}
-		
+
 		if (qntArmadilhasAtual < numArmadilhas) {
 			coelhosFaltantes[coelhosFaltantesLenght] = TipoCoelho.Armadilha;
-			coelhosFaltantesLenght ++;
+			coelhosFaltantesLenght++;
 		}
-		
+
 		return coelhosFaltantes;
 	}
 
@@ -102,5 +116,37 @@ public class Equipe {
 		}
 
 	}
+
+	
+
+	public void carregaImagens() {
+		// TODO : arrumar para que carreguem as imagens antes de chamar
+		imgPecaAzul = new ImageIcon(new ImageIcon(this.getClass().getResource("/pecaazul.png")).getImage()
+				.getScaledInstance(75, 75, java.awt.Image.SCALE_SMOOTH));
+
+		imgFireFighterBlue = new ImageIcon(new ImageIcon(this.getClass().getResource("/FireFighterBlue.png"))
+				.getImage().getScaledInstance(75, 75, java.awt.Image.SCALE_SMOOTH));
+
+		imgIceFighterBlue = new ImageIcon(new ImageIcon(this.getClass().getResource("/IceFighterBlue.png"))
+				.getImage().getScaledInstance(75, 75, java.awt.Image.SCALE_SMOOTH));
+
+		imgWaterFighterBlue = new ImageIcon(new ImageIcon(this.getClass().getResource("/WaterFighterBlue.png"))
+				.getImage().getScaledInstance(75, 75, java.awt.Image.SCALE_SMOOTH));
+
+		imgPecaVermelha = new ImageIcon(new ImageIcon(this.getClass().getResource("/pecavermelha.png")).getImage()
+				.getScaledInstance(75, 75, java.awt.Image.SCALE_SMOOTH));
+
+		imgFireFighterRed = new ImageIcon(new ImageIcon(this.getClass().getResource("/FireFighterRed.png"))
+				.getImage().getScaledInstance(75, 75, java.awt.Image.SCALE_SMOOTH));
+
+		imgIceFighterRed = new ImageIcon(new ImageIcon(this.getClass().getResource("/IceFighterRed.png"))
+				.getImage().getScaledInstance(75, 75, java.awt.Image.SCALE_SMOOTH));
+
+		imgWaterFighterRed = new ImageIcon(new ImageIcon(this.getClass().getResource("/WaterFighterRed.png"))
+				.getImage().getScaledInstance(75, 75, java.awt.Image.SCALE_SMOOTH));
+
+	}
+	
+
 
 }
