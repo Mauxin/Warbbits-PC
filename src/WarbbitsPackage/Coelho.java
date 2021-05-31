@@ -21,6 +21,7 @@ public class Coelho {
 		this.img = setImagem();
 		
 		equipe.adicionaCoelho(tipo);
+		System.out.println("Tipo de coelho>" + tipo);
 	}
 
 	private Icon setImagem() {
@@ -46,6 +47,7 @@ public class Coelho {
 		tCoelho = equipe.getCoelhosFaltantes();
 		 
 		System.out.println("tamanho:" + equipe.coelhosFaltantesLenght);
+		
 		
 		return tCoelho[new Random().nextInt(equipe.coelhosFaltantesLenght)];
 	}
