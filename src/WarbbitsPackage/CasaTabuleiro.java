@@ -1,16 +1,14 @@
 package WarbbitsPackage;
 
-import java.awt.Color;
-import java.awt.GradientPaint;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Point;
+import java.awt.Color; 
 import javax.swing.JButton;
 
 /*Interna ao tabuleiro controler - controler da casa do Tabueiro*/
 
 public class CasaTabuleiro extends JButton {
 
+	private static final long serialVersionUID = 5211261785636994072L;
+	
 	public Coelho coelho;
 
 	public CasaTabuleiro(Color cor) {
