@@ -18,26 +18,47 @@ public class Coelho {
 	public Coelho( Equipe equipe) {
 		this.equipe = equipe;
 		this.tipo = sorteiaCoelho();
-		this.img = setImagem();
+		this.img = setImagem(tipo);
 		
 		equipe.adicionaCoelho(tipo);
 		System.out.println("Tipo de coelho>" + tipo);
 	}
 
-	private Icon setImagem() {
+	private Icon setImagem(TipoCoelho tipo) {
 
-		Image iconImgV = new ImageIcon(this.getClass().getResource("/pecavermelha.png")).getImage()
-				.getScaledInstance(75, 75, java.awt.Image.SCALE_SMOOTH);
-		imgEscondidoVermelho = new ImageIcon(iconImgV);
 
-		Image iconImgA = new ImageIcon(this.getClass().getResource("/pecaazul.png")).getImage().getScaledInstance(75,
-				75, java.awt.Image.SCALE_SMOOTH);
-		imgEscondidoAzul = new ImageIcon(iconImgA);
-
-		if (equipe.time == TipoEquipe.Vermelha)
-			return imgEscondidoVermelho;
-		else
-			return imgEscondidoAzul;
+		if (equipe.time == TipoEquipe.Vermelha) {
+			if (tipo == TipoCoelho.Agua)
+				return new ImageIcon(new ImageIcon(this.getClass().getResource("/WaterFighterRed.png")).getImage().getScaledInstance(75,
+				75, java.awt.Image.SCALE_SMOOTH));
+			else if (tipo == TipoCoelho.Gelo)
+				return new ImageIcon(new ImageIcon(this.getClass().getResource("/IceFighterRed.png")).getImage().getScaledInstance(75,
+						75, java.awt.Image.SCALE_SMOOTH));
+			else if (tipo == TipoCoelho.Fogo)
+				return new ImageIcon(new ImageIcon(this.getClass().getResource("/FireFighterRed.png")).getImage().getScaledInstance(75,
+						75, java.awt.Image.SCALE_SMOOTH));
+			else 
+				return new ImageIcon(new ImageIcon(this.getClass().getResource("/pecavermelha.png")).getImage().getScaledInstance(75,
+						75, java.awt.Image.SCALE_SMOOTH));
+			
+		} 
+		else if (equipe.time == TipoEquipe.Azul) { //TimeAzul
+			
+			if (tipo == TipoCoelho.Agua)
+				return new ImageIcon(new ImageIcon(this.getClass().getResource("/WaterFighterBlue.png")).getImage().getScaledInstance(75,
+				75, java.awt.Image.SCALE_SMOOTH));
+			else if (tipo == TipoCoelho.Gelo)
+				return new ImageIcon(new ImageIcon(this.getClass().getResource("/IceFighterBlue.png")).getImage().getScaledInstance(75,
+						75, java.awt.Image.SCALE_SMOOTH));
+			else if (tipo == TipoCoelho.Fogo)
+				return new ImageIcon(new ImageIcon(this.getClass().getResource("/FireFighterBlue.png")).getImage().getScaledInstance(75,
+						75, java.awt.Image.SCALE_SMOOTH));
+			else 
+				return new ImageIcon(new ImageIcon(this.getClass().getResource("/pecaazul.png")).getImage().getScaledInstance(75,
+						75, java.awt.Image.SCALE_SMOOTH));
+ 		}
+		
+		return null;
 
 	}
 	
