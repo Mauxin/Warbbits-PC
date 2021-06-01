@@ -5,5 +5,6 @@ public enum TipoCoelho {
 	Agua,
 	Fogo,
 	Armadilha,
-	Bandeira
+	Bandeira,
+	Generico
 }

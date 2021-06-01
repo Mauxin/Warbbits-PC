@@ -1,7 +1,6 @@
 package WarbbitsPackage;
 
 import java.awt.Color;
-
 import javax.swing.Icon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -23,7 +22,7 @@ public class GameScreen extends JFrame {
 
 	Icon iconV;
 	Icon iconA;
-
+	//TODO: Pegar IP e Porta do WarbbitsGame.java
 	public String ip = "localhost";
 	public int port = 1234;
 
