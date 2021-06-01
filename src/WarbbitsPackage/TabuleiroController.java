@@ -23,7 +23,7 @@ public class TabuleiroController implements Runnable {
 	private CasaTabuleiro tabuleiro[][];
 	CasaTabuleiro casas[][];
 
-	public boolean seuTurno = false;
+	public boolean seuTurno = true;
 
 	public boolean primeiroClique = false;
 	public CasaTabuleiro casaSource = null;
@@ -42,13 +42,11 @@ public class TabuleiroController implements Runnable {
 			equipeVermelha = new Equipe(TipoEquipe.VermelhaOponente);
 			equipeAzul = new Equipe(TipoEquipe.Azul);
 			meuTime = equipeAzul.time;
-			seuTurno = true;
-
 		} else {
 			equipeVermelha = new Equipe(TipoEquipe.Vermelha);
 			equipeAzul = new Equipe(TipoEquipe.AzulOponente);
 			meuTime = equipeVermelha.time;
-
+			seuTurno = false;
 		}
 
 		CasaTabuleiro casas[][] = new CasaTabuleiro[7][6];
@@ -126,7 +124,7 @@ public class TabuleiroController implements Runnable {
 	}
 
 	public void moveCoelho(CasaTabuleiro casaTarget) {
-		// regras: move para os lados com apenas uma casa de distância
+		// regras: move para os lados com apenas uma casa de distï¿½ncia
 		/*
 		 * para esquerda : casaTarget.coluna < casaSource.coluna && casaTarget.linha ==
 		 * casaSource.linha para direita : casaTarget.coluna > casaSource.coluna &&
@@ -185,8 +183,8 @@ public class TabuleiroController implements Runnable {
 		// Fogo x Gelo : Fogo derrete o gelo, portanto Ganha
 		// *Gelo x Agua : Gelo congela a agua, portanto Ganha
 		// *Agua x Fogo : Agua apaga o fogo, portanto Ganha
-		// *Todas as peças perdem para a Peça Armadilha
-		// *Todas as peças ganham ao batalhar com a peça Bandeira
+		// *Todas as peï¿½as perdem para a Peï¿½a Armadilha
+		// *Todas as peï¿½as ganham ao batalhar com a peï¿½a Bandeira
 
 		if ((casaTarget.coelho.tipo == TipoCoelho.Fogo || casaSource.coelho.tipo == TipoCoelho.Fogo)
 				&& (casaTarget.coelho.tipo == TipoCoelho.Gelo || casaSource.coelho.tipo == TipoCoelho.Gelo))
@@ -219,15 +217,14 @@ public class TabuleiroController implements Runnable {
 	@Override
 	public void run() {
 		while (true) {
-			System.out.println("turno>>>>>>>" + seuTurno);
 			if (conexao.erros >= 10) {
 				unableToCommunicateWithOpponent = true;
 				System.out.println("conexao perdida");}
 			
-			if (!seuTurno && !unableToCommunicateWithOpponent) {
+			if (!unableToCommunicateWithOpponent) {
 				System.out.println("tamoai");
-				int x = conexao.disLeMovimento();
-				System.out.println("novo in: " + conexao.disLeMovimento());
+				int response = conexao.disLeMovimento();
+				System.out.println("novo in: " + response);
 				seuTurno = true;
 			}
 

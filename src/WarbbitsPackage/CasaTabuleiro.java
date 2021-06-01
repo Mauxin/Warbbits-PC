@@ -55,14 +55,12 @@ public class CasaTabuleiro extends JButton implements ActionListener {
 				System.out.println(">>segundo clique");
 				tabuleiro.moveCoelho(this);
 				tabuleiro.disablePrimeiroClique();
-				Toolkit.getDefaultToolkit().sync();
 				tabuleiro.conexao.enviaJogada(coluna + linha);
 				tabuleiro.seuTurno = false;
 
 			} else if (tabuleiro.primeiroClique && coelho != null && !coelho.equipe.time.equals(tabuleiro.meuTime)) {
 				tabuleiro.batalhaCoelho(this);
 				tabuleiro.disablePrimeiroClique();
-				Toolkit.getDefaultToolkit().sync();
 				tabuleiro.conexao.enviaJogada(coluna + linha);
 				tabuleiro.seuTurno = false;
 
@@ -72,12 +70,12 @@ public class CasaTabuleiro extends JButton implements ActionListener {
 					tabuleiro.enablePrimeiroClique(this);
 
 				} else {
-					System.out.println(">>Você não pode ir na casa do seu amigo");
+					System.out.println(">>Vocï¿½ nï¿½o pode ir na casa do seu amigo");
 					tabuleiro.disablePrimeiroClique();
 				}
 
 			} else {
-				System.out.println("Você não tem permissão para mexer nessa casa");
+				System.out.println("Vocï¿½ nï¿½o tem permissï¿½o para mexer nessa casa");
 
 			}
 
