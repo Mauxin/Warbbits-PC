@@ -74,10 +74,11 @@ public class Conexao {
 		}
 	}
 
-	public void enviaJogada(int jogada) {
+	public void enviaJogada(String jogada) {
 
 		try {
-			dos.writeInt(jogada);
+			//dos.writeInt(jogada);
+			dos.writeUTF(jogada);
 			dos.flush();
 			System.out.println("DATA WAS SENT");
 		} catch (IOException e) {
@@ -87,19 +88,19 @@ public class Conexao {
 
 	}
 
-	public int disLeMovimento() {
+	public String disLeMovimento() {
 
 		try {
-			if (conexaoAceita) {
-				System.out.println("To dentro do disLeMovimento ... vamos retornar ");
-				return dis.readInt();
+			if (conexaoAceita) { 
+				//return dis.readInt();
+				return dis.readUTF();
 				}
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-		return 0;
+		return "";
 
 	}
 

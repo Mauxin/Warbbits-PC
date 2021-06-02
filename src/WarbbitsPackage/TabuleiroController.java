@@ -6,6 +6,18 @@ import java.awt.Toolkit;
 import javax.swing.JPanel;
 
 public class TabuleiroController implements Runnable {
+	
+	/**
+	 * <pre>
+	 *   0 1 2 3 4 5 6 
+	 * 0 x x x x x x x
+	 * 1 x x x x x x x
+	 * 2 - - - - - - -
+	 * 3 - - - - - - -
+	 * 4 o o o o o o o 
+	 * 5 o o o o o o o 
+	 * </pre>
+	 */
 
 	Equipe equipeVermelha;
 	Equipe equipeAzul;
@@ -123,18 +135,8 @@ public class TabuleiroController implements Runnable {
 
 	}
 
-	public void moveCoelho(CasaTabuleiro casaTarget) {
-		// regras: move para os lados com apenas uma casa de dist�ncia
-		/*
-		 * para esquerda : casaTarget.coluna < casaSource.coluna && casaTarget.linha ==
-		 * casaSource.linha para direita : casaTarget.coluna > casaSource.coluna &&
-		 * casaTarget.linha == casaSource.linha para cima : casaTarget.coluna ==
-		 * casaSource.coluna && casaTarget.linha < casaSource.linha para baixo :
-		 * casaTarget.coluna == casaSource.coluna && casaTarget.linha > casaSource.linha
-		 * 
-		 * 
-		 * 
-		 */
+	public String moveCoelho(CasaTabuleiro casaTarget) {
+		String jogada="";
 
 		System.out.println("move coelho");
 
@@ -146,6 +148,11 @@ public class TabuleiroController implements Runnable {
 			casaSource.SetCoelho(null);
 		} else
 			System.out.println("movimento impossivel");
+		
+		jogada = "[" + casaSource.linha +"]" + "[" + casaSource.coluna +"]:" +"[" + casaTarget.linha +"]" +"[" + casaTarget.coluna +"]";
+		
+		
+		return jogada; 
 
 	}
 
@@ -177,7 +184,8 @@ public class TabuleiroController implements Runnable {
 			return Source;
 	}
 
-	public void batalhaCoelho(CasaTabuleiro casaTarget) {
+	public String batalhaCoelho(CasaTabuleiro casaTarget) {
+		String jogada="";
 		CasaTabuleiro CasaVencedora = null;
 
 		// Fogo x Gelo : Fogo derrete o gelo, portanto Ganha
@@ -206,6 +214,10 @@ public class TabuleiroController implements Runnable {
 
 		if (CasaVencedora != null)
 			moveCoelho(CasaVencedora);
+		
+		jogada = "[" + CasaVencedora.linha +"]" + "[" + CasaVencedora.coluna +"]:" +"[" + casaTarget.linha +"]" +"[" + casaTarget.coluna +"]";
+		
+		return jogada;
 
 	}
 
@@ -221,9 +233,8 @@ public class TabuleiroController implements Runnable {
 				unableToCommunicateWithOpponent = true;
 				System.out.println("conexao perdida");}
 			
-			if (!unableToCommunicateWithOpponent) {
-				System.out.println("tamoai");
-				int response = conexao.disLeMovimento();
+			if (!unableToCommunicateWithOpponent) { 
+				String response = conexao.disLeMovimento();
 				System.out.println("novo in: " + response);
 				seuTurno = true;
 			}

@@ -38,6 +38,9 @@ public class Coelho {
 			else if (tipo == TipoCoelho.Fogo)
 				return new ImageIcon(new ImageIcon(this.getClass().getResource("/FireFighterRed.png")).getImage()
 						.getScaledInstance(75, 75, java.awt.Image.SCALE_SMOOTH));
+			else if (tipo == TipoCoelho.Bandeira)
+				return new ImageIcon(new ImageIcon(this.getClass().getResource("/FlagFighterRed.png")).getImage()
+						.getScaledInstance(75, 75, java.awt.Image.SCALE_SMOOTH));
 			else
 				return new ImageIcon(new ImageIcon(this.getClass().getResource("/pecavermelha.png")).getImage()
 						.getScaledInstance(75, 75, java.awt.Image.SCALE_SMOOTH));
@@ -52,6 +55,9 @@ public class Coelho {
 						.getScaledInstance(75, 75, java.awt.Image.SCALE_SMOOTH));
 			else if (tipo == TipoCoelho.Fogo)
 				return new ImageIcon(new ImageIcon(this.getClass().getResource("/FireFighterBlue.png")).getImage()
+						.getScaledInstance(75, 75, java.awt.Image.SCALE_SMOOTH));
+			else if (tipo == TipoCoelho.Bandeira)
+				return new ImageIcon(new ImageIcon(this.getClass().getResource("/FlagFighterBlue.png")).getImage()
 						.getScaledInstance(75, 75, java.awt.Image.SCALE_SMOOTH));
 			else
 				return new ImageIcon(new ImageIcon(this.getClass().getResource("/pecaazul.png")).getImage()

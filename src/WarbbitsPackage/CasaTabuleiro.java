@@ -53,29 +53,29 @@ public class CasaTabuleiro extends JButton implements ActionListener {
 			if (tabuleiro.primeiroClique && coelho == null) {
 
 				System.out.println(">>segundo clique");
-				tabuleiro.moveCoelho(this);
+				String jogada = tabuleiro.moveCoelho(this);
 				tabuleiro.disablePrimeiroClique();
-				tabuleiro.conexao.enviaJogada(coluna + linha);
+				tabuleiro.conexao.enviaJogada(jogada);
 				tabuleiro.seuTurno = false;
 
 			} else if (tabuleiro.primeiroClique && coelho != null && !coelho.equipe.time.equals(tabuleiro.meuTime)) {
-				tabuleiro.batalhaCoelho(this);
-				tabuleiro.disablePrimeiroClique();
-				tabuleiro.conexao.enviaJogada(coluna + linha);
+				String jogada = tabuleiro.batalhaCoelho(this);
+				tabuleiro.disablePrimeiroClique(); 
+				tabuleiro.conexao.enviaJogada(jogada);
 				tabuleiro.seuTurno = false;
 
 			} else if (coelho != null && coelho.equipe.time.equals(tabuleiro.meuTime)) {
 				if (!tabuleiro.primeiroClique) {
-					System.out.println("cliquei no meu time > primeiro clique");
+					System.out.println("> primeiro clique");
 					tabuleiro.enablePrimeiroClique(this);
 
 				} else {
-					System.out.println(">>Voc� n�o pode ir na casa do seu amigo");
+					System.out.println(">>Voce nao pode batalhar com aliados");
 					tabuleiro.disablePrimeiroClique();
 				}
 
 			} else {
-				System.out.println("Voc� n�o tem permiss�o para mexer nessa casa");
+				System.out.println("Voce nao tem permissao para mexer nessa casa");
 
 			}
 
